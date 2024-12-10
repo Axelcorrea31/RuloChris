@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rulo</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Estilo personalizado para el modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 50%;
+            max-width: 600px;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .images-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .image-text {
+            text-align: center;
+            margin: 0 10px;
+        }
+
+        .arrow {
+            font-size: 24px;
+            margin: 0 20px;
+        }
+
+        img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        .modal-header {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="text-center">
+            <h1 >Rulo de divisas</h1>
+        </div>
+        <form>
+
+            <h1 class="h3 mb-3">MXN a USD</h1>
+            <div class="mb-3">
+                <label for="ValorMXNtrabajo" class="form-label">Valor mxn trabajo:</label>
+                <input type="number" class="form-control" id="ValorMXNtrabajo">
+            </div>
+            <div class="mb-3">
+                <label for="CantUSD" class="form-label">Cantidad USD a recibir:</label>
+                <input type="number" class="form-control" id="CantUSD">
+            </div>
+            <h1 class="h3 mb-3">USD A MXN dolarapp</h1>
+            <div class="mb-3">
+                <label for="ValorMXNDolarApp" class="form-label">Valor MXN DolarApp:</label>
+                <input type="number" class="form-control" id="ValorMXNDolarApp">
+            </div>
+            <div class="mb-3">
+                <label for="CantMXN" class="form-label">Cantidad USD a cambiar:</label>
+                <input type="number" class="form-control" id="CantMXN">
+            </div>
+            <h1 class="h3 mb-3">MXN A ARG</h1>
+            <div class="mb-3">
+                <label for="ValorARGdolarApp" class="form-label">Valor ARG DolarApp:</label>
+                <input type="text" class="form-control" id="ValorARGdolarApp">
+            </div>
+            <h1 class="h3 mb-3">ARG A MXN</h1>
+            <div class="mb-3">
+                <label for="ValorArgGente" class="form-label">Valor ARG vender:</label>
+                <input type="number" class="form-control" id="ValorArgGente">
+            </div>
+            <button type="button" class="btn btn-primary" onclick="FuncionMamaPepi()">Ver ganancia</button>
+        </form>
+    </div>
+
+    <!-- El Modal -->
+    <div id="miModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="modal-header">Rulo le hago a la mama del pepi</div>
+            <div class="images-container">
+                <div class="image-text">
+                    <p>Como es</p>
+                    <img src="img/WhatsApp Image 2024-12-10 at 13.57.59.jpeg" alt="Primera Imagen">
+                </div>
+                <div class="arrow">→</div>
+                <div class="image-text">
+                    <p>Como la veo</p>
+                    <img src="img/WhatsApp Image 2024-12-10 at 13.58.10.jpeg" alt="Segunda Imagen">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Función para abrir y cerrar el modal
+        function FuncionMamaPepi() {
+            var modal = document.getElementById("miModal");
+            var span = document.getElementsByClassName("close")[0];
+
+            modal.style.display = "block";
+
+            span.onclick = function() {
+                modal.style.display = "none";
+            }
+
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+        }
+    </script>
+</body>
+</html>
